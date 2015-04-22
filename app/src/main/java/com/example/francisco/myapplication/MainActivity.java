@@ -45,6 +45,8 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     private static final String QUERY_URL = "http://openlibrary.org/search.json?q=";
     ProgressDialog mDialog;
 
+    private static final String LOGGING_TAG = "APP.TAG";
+
     // @see http://www.raywenderlich.com/78578/android-tutorial-for-beginners-part-3
 
 	@Override
@@ -227,10 +229,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         String bookTitle = jsonObject.optString("title","");
         String bookAuthor = jsonObject.optJSONArray("author_name").optString(0,"");
 
-//        String bookAuthorSTR = jsonObject.optString("author_name", "");
-//        Log.d("TAG", bookTitle);
-//        Log.d("TAG", bookAuthorSTR);
-//        Log.d("TAG", bookAuthor);
+        Log.d(LOGGING_TAG, jsonObject.toString());
 
         detailIntent.putExtra("bookTitle", bookTitle);
         detailIntent.putExtra("bookAuthor", bookAuthor);
